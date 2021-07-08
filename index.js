@@ -1,6 +1,18 @@
-import { name } from './example-other-file';
+import { accounts } from './accounts';
 
-console.log('Javascriptinizi buraya yazabilirsiniz')
+console.log(accounts)
 
-// Baska dosyadan calistirmak mumkun, dosyalari parcalamaktan korkmayin!
-// name
+const dropdown = document.querySelector('#dropdown');
+
+document.addEventListener('DOMContentLoaded', () => {
+  accounts.map(account => dropdown.innerHTML += `
+    <li><a id="${account.id}" class="dropdown-item" href="#">${account.name} - ${account.balance} $</a></li>
+  `);
+});
+
+let userBalance = document.querySelector('#balance');
+
+dropdown.addEventListener('click', (e) => {
+  userBalance.innerHTML = `Account Name: ${accounts[e.target.id].name} - Balance: ${accounts[e.target.id].balance}$`;
+
+});

@@ -48,3 +48,24 @@ window.onload = function () {
   startTimer(twoMinutes, display);
 };
 
+
+ sendBtn.disabled = true;
+ sendMoney.disabled = true;
+
+ // Check IBAN Input Function
+function  checkValue() {
+  if (iban.value.length < 26) {
+    alert("IBAN numarası eksik görünüyor, lütfen kontrol ediniz.")
+  } else {
+    sendMoney.disabled = false;
+  }
+}
+
+// Check IBAN Input Eventi
+iban.addEventListener('change', checkValue);
+sendMoney.addEventListener('change', checkValue); // Iban yazıldıktan sonra yeniden silinme ihtimaline karşı bir daha kontrol ediyoruz.
+
+// Gönder Fonksiyonu
+// sendBtn.addEventListener('click', () => {
+  
+// });

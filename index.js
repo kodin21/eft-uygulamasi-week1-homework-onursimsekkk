@@ -36,7 +36,7 @@ function startTimer(duration, display) {
       display.textContent = minutes + ":" + seconds;
 
       if (--timer === 0) {
-          alert("2 dakikalık işlem süresi soan erdi, sayfa yeniden yüklenecek!")
+          alert("2 dakikalık işlem süresi sona erdi, sayfa yeniden yüklenecek!")
           location.reload();
       }
   }, 1000);

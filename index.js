@@ -20,7 +20,7 @@ dropdown.addEventListener('click', (e) => {
   userBalance.innerHTML = `
   Account Name: ${accounts[e.target.id].name} - Balance: ${accounts[e.target.id].balance}$
   `;
-  
+
 });
 
 // Timer Fonksiyonu
@@ -35,8 +35,9 @@ function startTimer(duration, display) {
 
       display.textContent = minutes + ":" + seconds;
 
-      if (--timer < 0) {
-          timer = duration;
+      if (--timer === 0) {
+          alert("2 dakikalık işlem süresi soan erdi, sayfa yeniden yüklenecek!")
+          location.reload();
       }
   }, 1000);
 }

@@ -3,6 +3,10 @@ import { accounts } from './accounts';
 console.log(accounts)
 
 const dropdown = document.querySelector('#dropdown');
+const iban = document.querySelector('#iban');
+const sendMoney = document.querySelector('#sendMoney');
+const sendBtn = document.querySelector('#sendBtn');
+const timer = document.querySelector('#timer');
 
 document.addEventListener('DOMContentLoaded', () => {
   accounts.map(account => dropdown.innerHTML += `
@@ -13,6 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
 let userBalance = document.querySelector('#balance');
 
 dropdown.addEventListener('click', (e) => {
-  userBalance.innerHTML = `Account Name: ${accounts[e.target.id].name} - Balance: ${accounts[e.target.id].balance}$`;
-
+  userBalance.innerHTML = `
+  Account Name: ${accounts[e.target.id].name} - Balance: ${accounts[e.target.id].balance}$
+  `;
+  
 });
+
+// Timer Fonksiyonu
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + ":" + seconds;
+
+      if (--timer < 0) {
+          timer = duration;
+      }
+  }, 1000);
+}
+
+window.onload = function () {
+  var twoMinutes = 60 * 2,
+      display = timer;
+  startTimer(twoMinutes, display);
+};
+

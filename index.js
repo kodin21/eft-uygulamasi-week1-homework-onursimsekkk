@@ -56,6 +56,7 @@ window.onload = function () {
 function  checkValue() {
   if (iban.value.length < 26) {
     alert("IBAN numarası eksik görünüyor, lütfen kontrol ediniz.")
+    sendMoney.disabled = true;
   } else {
     sendMoney.disabled = false;
   }

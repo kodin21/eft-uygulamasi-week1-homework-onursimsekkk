@@ -9,6 +9,7 @@ const sendBtn = document.querySelector('#sendBtn');
 const timer = document.querySelector('#timer');
 const passwordBox = document.querySelector('#password');
 const passwordAlert= document.querySelector('#pass-alert');
+const sendAlert= document.querySelector('#send-alert');
 // let currentUserBalance;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -102,14 +103,8 @@ function checkMoney() {
     // alert("Para transfer işleminiz başarılı!");
   }
 };
-
 sendMoney.addEventListener('blur', checkMoney);
 
-
-// const passwordValue = document.querySelector('#passwordCheck');
-// const passBtn = document.querySelector('.passBtn');
-
-// document.addEventListener('click', approvePassword);
 document.addEventListener('change', checkPasswordValue);
 
 function checkPasswordValue(e) {
@@ -130,14 +125,9 @@ function checkPasswordValue(e) {
   }
 }; 
 
-// function approvePassword(e) {
-//   if(e.target.id ==  "passBtn") {
-//     sendMoney.value ="";
-//     alert("Para transfer işleminiz başarılı!")
-//   }
-// };
-// const passwordValue = document.querySelector('#passwordCheck');
-// // const password = prompt("Lütfen telefonunuza gelen 4 haneli şifreyi giriniz.", "Şifre");
-// if (passwordValue === "1234") {
-//   sendBtn.disabled = false;
-// }
+sendBtn.addEventListener('click', () => {
+  const sendInfo = document.createElement("div");
+  sendInfo.textContent = "-Para transfer işleminiz başarılı-";
+  sendInfo.className = "p-2 bg-success text-light text-uppercase fs-3 mb-2";
+  sendAlert.appendChild(sendInfo);
+});
